@@ -1,7 +1,7 @@
 import * as z from "zod";
 import { UserRole } from "@prisma/client";
 
-export const SettingsSchema = z.object({
+export const UpdateSchema = z.object({
   name: z.optional(z.string()),
   isTwoFactorEnabled: z.optional(z.boolean()),
   role: z.enum([UserRole.ARRENDADOR, UserRole.ESTUDIANTE]),
