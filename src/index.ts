@@ -2,6 +2,7 @@ import express from "express";
 import userRoutes from "./routes/userRoutes";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware para parsear JSON
 app.use(express.json());
@@ -9,7 +10,8 @@ app.use(express.json());
 // Usar las rutas de usuario
 app.use("/api/users", userRoutes);
 
-// Exportar la aplicación como función
-export default (req: express.Request, res: express.Response) => {
-  app(req, res);
-};
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
+
+module.exports = app;
